@@ -1,5 +1,6 @@
 {
   "name": "zprint-admin",
+  "homepage": "",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -19,6 +20,7 @@
     "@vue/test-utils": "^1.0.3",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^26.0.1",
+    "gh-pages": "^3.1.0",
     "jest": "^26.0.1",
     "vue-jest": "^3.0.4"
   }
