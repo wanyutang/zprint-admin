@@ -3,15 +3,16 @@ import colors from 'vuetify/es5/util/colors'
 const custmerConfig = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
     base: '/zprint-admin'
+  },
+  build: {
+    publicPath: 'public/'
   }
-} : {
-  router: {
-    base: '/dev-demo'
-  }
-}
+} : {}
 
 export default {
-  ...custmerConfig,
+  router: {
+    base: '/dev-demo'
+  },
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
@@ -101,6 +102,6 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    publicPath: 'public/'
-  }
+  },
+  ...custmerConfig
 }
