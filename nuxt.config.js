@@ -1,6 +1,17 @@
 import colors from 'vuetify/es5/util/colors'
 
+const custmerConfig = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/zprint-admin'
+  }
+} : {
+  router: {
+    base: '/dev-demo'
+  }
+}
+
 export default {
+  ...custmerConfig,
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
@@ -30,10 +41,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'Content-Security-Policy', content: "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'" },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' }
     ]
   },
   /*
@@ -89,5 +101,6 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    publicPath: 'public/'
   }
 }

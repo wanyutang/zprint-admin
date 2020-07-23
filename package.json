@@ -1,6 +1,6 @@
 {
   "name": "zprint-admin",
-  "homepage": "",
+  "homepage": "https://wanyutang.github.io/zprint-admin",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,8 @@
     "export": "nuxt export",
     "serve": "nuxt serve",
     "test": "jest",
-    "generate": "nuxt build && nuxt export"
+    "generate": "rm -r dist && DEPLOY_ENV=GH_PAGES nuxt build && DEPLOY_ENV=GH_PAGES nuxt export",
+    "deploy": "npm run generate && gh-pages -d dist"
   },
   "dependencies": {
     "nuxt": "^2.13.0"
